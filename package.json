@@ -1,0 +1,38 @@
+{
+  "name": "sanity-graphql-schema",
+  "version": "0.0.1",
+  "description": "Declare a Sanity schema using GraphQL SDL syntax",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "posttest": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-sanity": "^0.136.0",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.2"
+  },
+  "dependencies": {
+    "graphql": "^14.0.2",
+    "lodash": "^4.17.11",
+    "oneline": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rexxars/sanity-graphql-schema.git"
+  },
+  "keywords": [
+    "sanity",
+    "graphql",
+    "sdl",
+    "schema"
+  ],
+  "author": "Espen Hovlandsdal <espen@hovlandsdal.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rexxars/sanity-graphql-schema/issues"
+  },
+  "homepage": "https://github.com/rexxars/sanity-graphql-schema#readme"
+}

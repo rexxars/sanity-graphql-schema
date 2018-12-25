@@ -1,0 +1,1282 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`01-simple 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "object",
+  },
+]
+`;
+
+exports[`02-basics 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "int",
+        "title": "Int",
+        "type": "number",
+        "validation": [Function],
+      },
+      Object {
+        "name": "float",
+        "title": "Float",
+        "type": "number",
+      },
+      Object {
+        "name": "string",
+        "title": "String",
+        "type": "string",
+      },
+      Object {
+        "name": "bool",
+        "title": "Bool",
+        "type": "boolean",
+      },
+      Object {
+        "name": "id",
+        "title": "Id",
+        "type": "string",
+      },
+      Object {
+        "name": "number",
+        "title": "Number",
+        "type": "number",
+      },
+      Object {
+        "name": "email",
+        "title": "Email",
+        "type": "email",
+      },
+      Object {
+        "name": "text",
+        "title": "Text",
+        "type": "text",
+      },
+      Object {
+        "name": "date",
+        "title": "Date",
+        "type": "date",
+      },
+      Object {
+        "name": "dateTime",
+        "title": "Date time",
+        "type": "dateTime",
+      },
+      Object {
+        "name": "url",
+        "title": "Url",
+        "type": "url",
+      },
+      Object {
+        "name": "list",
+        "of": Array [
+          Object {
+            "type": "string",
+          },
+        ],
+        "title": "List",
+        "type": "array",
+      },
+      Object {
+        "name": "textList",
+        "of": Array [
+          Object {
+            "type": "text",
+          },
+        ],
+        "title": "Text list",
+        "type": "array",
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "object",
+  },
+]
+`;
+
+exports[`03-multi-type 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "object",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+]
+`;
+
+exports[`04-reference 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "author",
+        "title": "Author",
+        "to": Array [
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+        "validation": [Function],
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+]
+`;
+
+exports[`05-reference-array 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "authors",
+        "of": Array [
+          Object {
+            "to": Array [
+              Object {
+                "type": "author",
+              },
+            ],
+            "type": "reference",
+          },
+        ],
+        "title": "Authors",
+        "type": "array",
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+]
+`;
+
+exports[`06-reference-array-non-nullable 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "authors",
+        "of": Array [
+          Object {
+            "to": Array [
+              Object {
+                "type": "author",
+              },
+            ],
+            "type": "reference",
+          },
+        ],
+        "title": "Authors",
+        "type": "array",
+        "validation": [Function],
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+]
+`;
+
+exports[`07-directives 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+      Object {
+        "hidden": true,
+        "name": "birthDate",
+        "title": "Birth date",
+        "type": "date",
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "author",
+        "title": "Author",
+        "to": Array [
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+      },
+      Object {
+        "name": "tags",
+        "of": Array [
+          Object {
+            "type": "string",
+          },
+        ],
+        "options": Object {
+          "layout": "tags",
+        },
+        "title": "Tags",
+        "type": "array",
+        "validation": [Function],
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+]
+`;
+
+exports[`08-inline-document 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "author",
+        "title": "Author",
+        "type": "author",
+        "validation": [Function],
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+]
+`;
+
+exports[`09-inline-document-array 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "authors",
+        "of": Array [
+          Object {
+            "type": "author",
+          },
+        ],
+        "title": "Authors",
+        "type": "array",
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+]
+`;
+
+exports[`10-unions 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+      Object {
+        "name": "joined",
+        "title": "Joined",
+        "type": "date",
+      },
+    ],
+    "name": "reviewer",
+    "title": "Reviewer",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+      Object {
+        "name": "firstPublished",
+        "title": "First published",
+        "type": "date",
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "author",
+        "title": "Author",
+        "to": Array [
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+      },
+      Object {
+        "name": "reviewer",
+        "title": "Reviewer",
+        "to": Array [
+          Object {
+            "type": "reviewer",
+          },
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+      },
+      Object {
+        "name": "descisionMaker",
+        "title": "Descision maker",
+        "to": Array [
+          Object {
+            "type": "reviewer",
+          },
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+        "validation": [Function],
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+]
+`;
+
+exports[`11-union-array 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+      Object {
+        "name": "joined",
+        "title": "Joined",
+        "type": "date",
+      },
+    ],
+    "name": "reviewer",
+    "title": "Reviewer",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+      Object {
+        "name": "firstPublished",
+        "title": "First published",
+        "type": "date",
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "author",
+        "title": "Author",
+        "to": Array [
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+      },
+      Object {
+        "name": "reviewers",
+        "of": Array [
+          Object {
+            "to": Array [
+              Object {
+                "type": "reviewer",
+              },
+              Object {
+                "type": "author",
+              },
+            ],
+            "type": "reference",
+          },
+        ],
+        "title": "Reviewers",
+        "type": "array",
+        "validation": [Function],
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+]
+`;
+
+exports[`12-union-of-unions 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+      Object {
+        "name": "joined",
+        "title": "Joined",
+        "type": "date",
+      },
+    ],
+    "name": "reviewer",
+    "title": "Reviewer",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+      Object {
+        "name": "firstPublished",
+        "title": "First published",
+        "type": "date",
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "author",
+        "title": "Author",
+        "to": Array [
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+      },
+      Object {
+        "name": "reviewer",
+        "title": "Reviewer",
+        "to": Array [
+          Object {
+            "type": "reviewer",
+          },
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "attachedTo",
+        "title": "Attached to",
+        "to": Array [
+          Object {
+            "type": "reviewer",
+          },
+          Object {
+            "type": "author",
+          },
+          Object {
+            "type": "book",
+          },
+          Object {
+            "type": "magazine",
+          },
+        ],
+        "type": "reference",
+      },
+    ],
+    "name": "magazine",
+    "title": "Magazine",
+    "type": "document",
+  },
+]
+`;
+
+exports[`13-union-of-union-array 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+      Object {
+        "name": "joined",
+        "title": "Joined",
+        "type": "date",
+      },
+    ],
+    "name": "reviewer",
+    "title": "Reviewer",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+      Object {
+        "name": "firstPublished",
+        "title": "First published",
+        "type": "date",
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "author",
+        "title": "Author",
+        "to": Array [
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+      },
+      Object {
+        "name": "reviewer",
+        "title": "Reviewer",
+        "to": Array [
+          Object {
+            "type": "reviewer",
+          },
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "attachedTo",
+        "of": Array [
+          Object {
+            "to": Array [
+              Object {
+                "type": "reviewer",
+              },
+              Object {
+                "type": "author",
+              },
+              Object {
+                "type": "book",
+              },
+              Object {
+                "type": "magazine",
+              },
+            ],
+            "type": "reference",
+          },
+        ],
+        "title": "Attached to",
+        "type": "array",
+      },
+    ],
+    "name": "magazine",
+    "title": "Magazine",
+    "type": "document",
+  },
+]
+`;
+
+exports[`14-reference-and-inline-array 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "caption",
+        "title": "Caption",
+        "type": "string",
+      },
+      Object {
+        "name": "url",
+        "title": "Url",
+        "type": "url",
+      },
+    ],
+    "name": "externalImage",
+    "title": "External image",
+    "type": "object",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "author",
+        "title": "Author",
+        "to": Array [
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+        "validation": [Function],
+      },
+      Object {
+        "name": "description",
+        "of": Array [
+          Object {
+            "to": Array [
+              Object {
+                "type": "author",
+              },
+            ],
+            "type": "reference",
+          },
+          Object {
+            "type": "externalImage",
+          },
+        ],
+        "title": "Description",
+        "type": "array",
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+]
+`;
+
+exports[`15-forced-inline-array 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "caption",
+        "title": "Caption",
+        "type": "string",
+      },
+      Object {
+        "name": "url",
+        "title": "Url",
+        "type": "url",
+      },
+    ],
+    "name": "externalImage",
+    "title": "External image",
+    "type": "object",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "author",
+        "title": "Author",
+        "to": Array [
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+        "validation": [Function],
+      },
+      Object {
+        "name": "description",
+        "of": Array [
+          Object {
+            "type": "author",
+          },
+          Object {
+            "type": "externalImage",
+          },
+        ],
+        "title": "Description",
+        "type": "array",
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+]
+`;
+
+exports[`16-error-inline-union 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "object",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "caption",
+        "title": "Caption",
+        "type": "string",
+      },
+      Object {
+        "name": "url",
+        "title": "Url",
+        "type": "url",
+      },
+    ],
+    "name": "externalImage",
+    "title": "External image",
+    "type": "object",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "author",
+        "title": "Author",
+        "type": "author",
+        "validation": [Function],
+      },
+      Object {
+        "_problems": Array [
+          Object {
+            "message": "Field \\"description\\" on type \\"Book\\" cannot be an inline union (Author, ExternalImage are not document types and therefore must be inlined)",
+            "severity": "error",
+          },
+        ],
+        "name": "description",
+        "title": "Description",
+        "type": "string",
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+]
+`;
+
+exports[`17-error-non-ref-union-field 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "caption",
+        "title": "Caption",
+        "type": "string",
+      },
+      Object {
+        "name": "url",
+        "title": "Url",
+        "type": "url",
+      },
+    ],
+    "name": "externalImage",
+    "title": "External image",
+    "type": "object",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "author",
+        "title": "Author",
+        "to": Array [
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+        "validation": [Function],
+      },
+      Object {
+        "_problems": Array [
+          Object {
+            "message": "Field \\"description\\" on type \\"Book\\" cannot be an inline union (ExternalImage is not a document type and therefore must be inlined)",
+            "severity": "error",
+          },
+        ],
+        "name": "description",
+        "title": "Description",
+        "type": "string",
+      },
+    ],
+    "name": "book",
+    "title": "Book",
+    "type": "document",
+  },
+]
+`;
+
+exports[`99-full 1`] = `
+Array [
+  Object {
+    "description": "A blog post
+
+It can contain newlines",
+    "fields": Array [
+      Object {
+        "name": "title",
+        "title": "Title",
+        "type": "string",
+      },
+      Object {
+        "name": "leadImage",
+        "options": Object {
+          "hotspot": true,
+        },
+        "title": "Lead image",
+        "type": "captionedImage",
+      },
+      Object {
+        "name": "author",
+        "title": "Author",
+        "to": Array [
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+        "validation": [Function],
+      },
+      Object {
+        "name": "body",
+        "title": "Body",
+        "type": "text",
+      },
+      Object {
+        "name": "tags",
+        "of": Array [
+          Object {
+            "type": "string",
+          },
+        ],
+        "options": Object {
+          "layout": "tags",
+        },
+        "title": "Tags",
+        "type": "array",
+      },
+      Object {
+        "name": "status",
+        "options": Object {
+          "layout": "radio",
+          "list": Array [
+            Object {
+              "name": "active",
+            },
+            Object {
+              "name": "disabled",
+            },
+          ],
+        },
+        "title": "Status",
+        "type": "string",
+      },
+      Object {
+        "hidden": true,
+        "name": "views",
+        "readOnly": true,
+        "title": "Views",
+        "type": "number",
+        "validation": [Function],
+      },
+      Object {
+        "description": "Comments are sent from the frontend",
+        "name": "comments",
+        "of": Array [
+          Object {
+            "to": Array [
+              Object {
+                "type": "comment",
+              },
+            ],
+            "type": "reference",
+          },
+        ],
+        "title": "User comments",
+        "type": "array",
+      },
+    ],
+    "name": "post",
+    "title": "Blog post",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+      },
+      Object {
+        "name": "profileImage",
+        "title": "Profile image",
+        "type": "image",
+      },
+    ],
+    "name": "author",
+    "orderings": Array [
+      Object {
+        "by": Array [
+          Object {
+            "direction": "desc",
+            "field": "releaseDate.utc",
+          },
+        ],
+        "name": "releaseDateDesc",
+        "title": "Release Date",
+      },
+    ],
+    "title": "Author",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+      },
+    ],
+    "name": "user",
+    "title": "User",
+    "type": "document",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "name": "caption",
+        "title": "Caption",
+        "type": "string",
+      },
+      Object {
+        "name": "uploadedBy",
+        "title": "Uploaded by",
+        "type": "author",
+      },
+    ],
+    "name": "captionedImage",
+    "title": "Captioned image",
+    "type": "image",
+  },
+  Object {
+    "fields": Array [
+      Object {
+        "description": "Author of this comment",
+        "name": "author",
+        "title": "Author",
+        "to": Array [
+          Object {
+            "type": "author",
+          },
+        ],
+        "type": "reference",
+        "validation": [Function],
+      },
+      Object {
+        "name": "text",
+        "title": "Text",
+        "type": "string",
+      },
+      Object {
+        "fieldset": "stats",
+        "name": "likes",
+        "title": "Likes",
+        "type": "number",
+        "validation": [Function],
+      },
+      Object {
+        "name": "likedBy",
+        "of": Array [
+          Object {
+            "to": Array [
+              Object {
+                "type": "user",
+              },
+            ],
+            "type": "reference",
+          },
+        ],
+        "title": "Liked by",
+        "type": "array",
+      },
+    ],
+    "fieldsets": Array [
+      Object {
+        "name": "stats",
+        "title": "Statistics",
+      },
+    ],
+    "name": "comment",
+    "title": "Comment",
+    "type": "document",
+  },
+]
+`;
