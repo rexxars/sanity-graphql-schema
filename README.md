@@ -1,6 +1,6 @@
-# graphql-sanity-schema
+# sanity-graphql-schema
 
-Declare a Sanity schema using GraphQL SDL syntax.
+Declare a [Sanity](https://www.sanity.io/) schema using GraphQL SDL syntax.
 
 - Auto-infers title from type/field names (`leadAsset` -> `Lead asset`)
 - Type names are automatically camelcased (`BlogPost` -> `blogPost`)
@@ -14,7 +14,7 @@ Declare a Sanity schema using GraphQL SDL syntax.
 
 ```
 # In your Sanity studio folder
-yarn add graphql-sanity-schema
+yarn add sanity-graphql-schema
 ```
 
 ## Basic usage
@@ -37,9 +37,9 @@ To use this module, import it, call the imported function with a GraphQL schema 
 
 ```js
 import createSchema from 'part:@sanity/base/schema-creator'
-import fromGQL from 'graphql-sanity-schema'
+import {fromGQL, graphql} from 'sanity-graphql-schema'
 
-const schema = `
+const schema = graphql`
   type Author implements Document {
     name: String!
     profileImage: Image
@@ -118,8 +118,8 @@ export default createSchema({
 ## Developing
 
 ```bash
-git clone git@github.com:rexxars/graphql-sanity-schema.git
-cd graphql-sanity-schema
+git clone git@github.com:rexxars/sanity-graphql-schema.git
+cd sanity-graphql-schema
 npm install
 npm test
 ```
