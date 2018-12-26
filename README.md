@@ -109,11 +109,11 @@ export default createSchema({
 - [x] Generate GQL types for custom types (color input, for instance)
 - [x] Custom scalars (`markdown`)
 - [x] Throw on non-reference union fields
-- [ ] Blocks/spans
+- [x] Better error handling
+- [x] Blocks/spans
 - [ ] Validation directives
 - [ ] Inject icons, input components as options argument
 - [ ] JSON scalar for arbitrary input for custom types? Or options as dotpath? Both?
-- [ ] Better error handling
 
 ## Developing
 

@@ -1,6 +1,6 @@
 const oneline = require('oneline')
 const {parse, specifiedScalarTypes, valueFromASTUntyped, buildASTSchema} = require('graphql')
-const {words, snakeCase, camelCase, upperFirst} = require('lodash')
+const {words, snakeCase, camelCase, upperFirst, isPlainObject} = require('lodash')
 const coreSchema = require('./coreSchema')
 const schemaError = require('./schemaError')
 const stubExternalTypes = require('./stubExternalTypes')
@@ -156,6 +156,117 @@ function flattenUnionType(def, map) {
   }, [])
 }
 
+function convertBlockType(def, map, options, directives) {
+  const typeName = def.name.value
+  const {display, block} = directives
+  const {icons} = options
+
+  const fields = def.fields.reduce((acc, field) => {
+    acc[field.name.value] = field
+    return acc
+  }, {})
+
+  const {of: inlineTypes, ...rest} = fields
+  const unknown = Object.keys(rest)
+  if (unknown.length > 0) {
+    return schemaError(oneline`
+      Unknown keys for block type:
+      ${unknown.map(str => `"${str}"`).join(', ')}
+    `)
+  }
+
+  let ofMembers
+  if (inlineTypes) {
+    const nonNull = inlineTypes.type.kind === 'NonNullType'
+    const type = nonNull ? inlineTypes.type.type : inlineTypes.type
+    const ofDef = convertArrayField(inlineTypes, map, {...options, parent: def}, type, inlineTypes)
+    ofMembers = ofDef.of
+  }
+
+  let {styles, decorators, annotations} = block
+  if (styles) {
+    const invalid = validateNameTitleArray(styles, 'styles')
+    if (invalid) {
+      return invalid
+    }
+
+    styles = enforceTitlesForNameTitlePairs(styles)
+  }
+
+  if (decorators) {
+    const invalid = validateNameTitleArray(decorators, 'decorators')
+    if (invalid) {
+      return invalid
+    }
+
+    decorators = enforceTitlesForNameTitlePairs(decorators)
+  }
+
+  if (annotations && typeof annotations !== 'string') {
+    return schemaError('`annotations` needs to be a string referencing a type', 'annotations')
+  } else if (annotations && !map.has(annotations)) {
+    return schemaError(`'annotations' references missing type: "${annotations}"`)
+  } else if (annotations) {
+    annotations = getAnnotationMembers(def, annotations, map, options)
+  }
+
+  return withoutUndefined({
+    name: camelCase(typeName),
+    title: display.title || titleCase(def.name.value),
+    type: 'block',
+    description: def.description && def.description.value,
+    icon: icons[display.icon],
+    of: ofMembers
+  })
+}
+
+function getAnnotationMembers(def, annotations, map, options) {
+  return convertArrayField(
+    {},
+    map,
+    {...options, parent: def},
+    {
+      kind: 'NamedType',
+      name: {kind: 'Name', value: annotations}
+    },
+    {name: 'annotations'}
+  ).of
+}
+
+function validateNameTitleArray(arr, name) {
+  if (!Array.isArray(arr)) {
+    return schemaError(`${name} must be an array of name/title pairs, got ${typeof arr}`, name)
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!isPlainObject(arr[i])) {
+      return schemaError(`Expected name/title pair, unexpected value at index ${i}`, name)
+    }
+
+    const unknown = Object.keys(arr[i]).filter(key => !['name', 'title'].includes(key))
+    if (unknown.length > 0) {
+      return schemaError(
+        `Name/title pair has unknown keys: ${unknown.map(key => `"${key}"`).join(', ')}`,
+        name
+      )
+    }
+
+    if (!arr[i].name) {
+      return schemaError(`Name/title pair at index ${i} is missing "name" property`, name)
+    }
+  }
+
+  return false
+}
+
+function enforceTitlesForNameTitlePairs(arr) {
+  const getTitle = name => (/^h\d$/.test(name) ? `Heading ${name.slice(1)}` : titleCase(name))
+  return arr.map(item => ({
+    name: item.name,
+    title: item.title || getTitle(item.name)
+  }))
+}
+
 function convertObjectType(def, map, options) {
   const typeName = def.name.value
 
@@ -199,8 +310,12 @@ function convertObjectType(def, map, options) {
   }
 
   const directives = getDirectives(def)
-  const {display, fieldsets, orderings} = directives
+  const {display, fieldsets, orderings, block} = directives
   const {icons} = options
+
+  if (block) {
+    return convertBlockType(def, map, options, directives)
+  }
 
   return withoutUndefined({
     name: camelCase(typeName),

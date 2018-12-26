@@ -22,25 +22,29 @@ module.exports = graphql`
   directive @extract(metadata: [String!]!, originalFilename: Boolean) on FIELD_DEFINITION
 
   # Block directives
-  directive @block(styles: [String!]) on FIELD_DEFINITION
+  directive @block(
+    styles: [SanityNameTitlePair!]
+    decorators: [SanityNameTitlePair!]
+    annotations: String
+  ) on OBJECT
 
   scalar Number
   scalar Email
   scalar Text
   scalar Date
   scalar DateTime
-  scalar Url
+  scalar Urls
+
+  type SanityNameTitlePair {
+    name: String!
+    title: String
+  }
 
   type SanitySchemaFieldSet {
     name: String!
     title: String!
     collapsible: Boolean
     collapsed: Boolean
-  }
-
-  type SanityNameTitlePair {
-    name: String!
-    title: String
   }
 
   type SanitySchemaOrdering {
@@ -181,7 +185,7 @@ module.exports = graphql`
     current: String
   }
 
-  interface Block {
+  type Block {
     _key: String
     _type: String
     spans: [Span!]
