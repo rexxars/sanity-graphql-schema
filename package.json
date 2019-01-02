@@ -1,6 +1,6 @@
 {
   "name": "sanity-graphql-schema",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Declare a Sanity schema using GraphQL SDL syntax",
   "main": "lib/index.js",
   "scripts": {
