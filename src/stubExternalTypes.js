@@ -1,4 +1,4 @@
-const {upperFirst} = require('lodash')
+const {upperFirst} = require('lodash-es')
 
 module.exports = function stubExternalTypes(types) {
   return types.reduce((sdl, type) => {

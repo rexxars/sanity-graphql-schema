@@ -32,7 +32,7 @@ module.exports = graphql`
   scalar Email
   scalar Text
   scalar Date
-  scalar DateTime
+  scalar Datetime
   scalar Urls
 
   type SanityNameTitlePair {
@@ -61,8 +61,8 @@ module.exports = graphql`
   interface Document {
     _id: ID!
     _type: String!
-    _createdAt: DateTime!
-    _updatedAt: DateTime!
+    _createdAt: Datetime!
+    _updatedAt: Datetime!
     _rev: String!
   }
 
@@ -91,8 +91,8 @@ module.exports = graphql`
   type SanityFileAsset implements Document {
     _id: ID!
     _type: String!
-    _createdAt: DateTime!
-    _updatedAt: DateTime!
+    _createdAt: Datetime!
+    _updatedAt: Datetime!
     _rev: String!
     originalFilename: String
     label: String
@@ -108,8 +108,8 @@ module.exports = graphql`
   type SanityImageAsset implements Document {
     _id: ID!
     _type: String!
-    _createdAt: DateTime!
-    _updatedAt: DateTime!
+    _createdAt: Datetime!
+    _updatedAt: Datetime!
     _rev: String!
     originalFilename: String
     label: String

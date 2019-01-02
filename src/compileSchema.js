@@ -1,6 +1,6 @@
 const oneline = require('oneline')
 const {parse, specifiedScalarTypes, valueFromASTUntyped, buildASTSchema} = require('graphql')
-const {words, snakeCase, camelCase, upperFirst, isPlainObject} = require('lodash')
+const {words, snakeCase, camelCase, upperFirst, isPlainObject} = require('lodash-es')
 const coreSchema = require('./coreSchema')
 const schemaError = require('./schemaError')
 const stubExternalTypes = require('./stubExternalTypes')
@@ -417,6 +417,7 @@ function convertField(def, map, options) {
 
   const field = {
     name,
+    type: undefined,
     title: display.title || (name && titleCase(name)),
     description: def.description && def.description.value,
     readOnly: Boolean(readOnly) || undefined,
