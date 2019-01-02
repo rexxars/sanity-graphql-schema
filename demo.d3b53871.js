@@ -92555,7 +92555,51 @@ function getFieldDefForNamedType(type) {
       };
   }
 }
-},{"oneline":"../node_modules/oneline/oneline.js","graphql":"../node_modules/graphql/index.mjs","lodash-es":"../node_modules/lodash-es/lodash.js","./coreSchema":"../src/coreSchema.js","./schemaError":"../src/schemaError.js","./stubExternalTypes":"../src/stubExternalTypes.js","./withoutUndefined":"../src/withoutUndefined.js"}],"../node_modules/graphql-language-service-parser/dist/CharacterStream.js":[function(require,module,exports) {
+},{"oneline":"../node_modules/oneline/oneline.js","graphql":"../node_modules/graphql/index.mjs","lodash-es":"../node_modules/lodash-es/lodash.js","./coreSchema":"../src/coreSchema.js","./schemaError":"../src/schemaError.js","./stubExternalTypes":"../src/stubExternalTypes.js","./withoutUndefined":"../src/withoutUndefined.js"}],"GithubBadge.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = function _default() {
+  return _react.default.createElement("a", {
+    href: "https://github.com/rexxars/sanity-graphql-schema",
+    style: {
+      zIndex: 30,
+      position: 'absolute',
+      top: 0,
+      right: 0
+    }
+  }, _react.default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "80",
+    height: "80",
+    viewBox: "0 0 250 250",
+    fill: "#151513"
+  }, _react.default.createElement("path", {
+    d: "M0 0l115 115h15l12 27 108 108V0z",
+    fill: "#fff"
+  }), _react.default.createElement("path", {
+    className: "octo-arm",
+    d: "M128 109c-15-9-9-19-9-19 3-7 2-11 2-11-1-7 3-2 3-2 4 5 2 11 2 11-3 10 5 15 9 16",
+    style: {
+      WebkitTransformOrigin: '130px 106px',
+      transformOrigin: '130px 106px'
+    }
+  }), _react.default.createElement("path", {
+    className: "octo-body",
+    d: "M115 115s4 2 5 0l14-14c3-2 6-3 8-3-8-11-15-24 2-41 5-5 10-7 16-7 1-2 3-7 12-11 0 0 5 3 7 16 4 2 8 5 12 9s7 8 9 12c14 3 17 7 17 7-4 8-9 11-11 11 0 6-2 11-7 16-16 16-30 10-41 2 0 3-1 7-5 11l-12 11c-1 1 1 5 1 5z"
+  })));
+};
+
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"../node_modules/graphql-language-service-parser/dist/CharacterStream.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -94391,6 +94435,8 @@ var _reactCodemirror = require("react-codemirror2");
 
 var _compileSchema = _interopRequireDefault(require("../src/compileSchema"));
 
+var _GithubBadge = _interopRequireDefault(require("./GithubBadge"));
+
 require("codemirror-graphql/mode");
 
 require("codemirror/mode/javascript/javascript");
@@ -94487,7 +94533,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_reactCodemirror.UnControlled, {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_GithubBadge.default, null), _react.default.createElement(_reactCodemirror.UnControlled, {
         value: this.props.initialSdl,
         options: {
           mode: 'graphql',
@@ -94510,7 +94556,7 @@ function (_React$Component) {
 _reactDom.default.render(_react.default.createElement(SanityGraphQLDemo, {
   initialSdl: getInitialValue()
 }), document.getElementById('demo'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","lodash-es":"../node_modules/lodash-es/lodash.js","json5":"../node_modules/json5/dist/index.js","react-codemirror2":"../node_modules/react-codemirror2/index.js","../src/compileSchema":"../src/compileSchema.js","codemirror-graphql/mode":"../node_modules/codemirror-graphql/mode.js","codemirror/mode/javascript/javascript":"../node_modules/codemirror/mode/javascript/javascript.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","lodash-es":"../node_modules/lodash-es/lodash.js","json5":"../node_modules/json5/dist/index.js","react-codemirror2":"../node_modules/react-codemirror2/index.js","../src/compileSchema":"../src/compileSchema.js","./GithubBadge":"GithubBadge.js","codemirror-graphql/mode":"../node_modules/codemirror-graphql/mode.js","codemirror/mode/javascript/javascript":"../node_modules/codemirror/mode/javascript/javascript.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -94537,7 +94583,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52945" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57310" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
