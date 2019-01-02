@@ -1,0 +1,37 @@
+@import './css/codemirror.css';
+@import './css/material.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#demo {
+  background: #263238;
+}
+
+#demo {
+  width: 100vw;
+  height: 100vh;
+}
+
+.react-codemirror2 {
+  width: 49.5vw;
+  height: 100vh;
+  display: inline-block;
+}
+
+.react-codemirror2:last-child {
+  border-left: 1px solid #ccc;
+}
+
+.CodeMirror {
+  margin: 0.5em 1em;
+  font-size: 1.2em;
+  height: 100vh;
+}
