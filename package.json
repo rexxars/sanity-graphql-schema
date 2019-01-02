@@ -5,14 +5,28 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
+    "demo": "parcel demo/index.html",
+    "demo:build": "NODE_ENV=production parcel build --experimental-scope-hoisting demo/index.html",
     "posttest": "eslint ."
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "codemirror": "^5.42.2",
+    "codemirror-graphql": "^0.8.3",
     "eslint": "^5.9.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-config-sanity": "^0.136.0",
     "jest": "^23.6.0",
-    "prettier": "^1.15.2"
+    "json5": "^2.1.0",
+    "parcel-bundler": "^1.11.0",
+    "parcel-plugin-bundle-visualiser": "^1.2.0",
+    "prettier": "^1.15.2",
+    "react": "^16.7.0",
+    "react-codemirror2": "^5.1.0",
+    "react-dom": "^16.7.0"
   },
   "dependencies": {
     "graphql": "^14.0.2",

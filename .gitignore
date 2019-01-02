@@ -49,3 +49,6 @@ package-lock.json
 # Cache
 .cache
 
+# build ouput
+dist
+
