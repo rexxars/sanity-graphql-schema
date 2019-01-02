@@ -8,7 +8,7 @@
     "demo": "parcel demo/index.html",
     "demo:build": "NODE_ENV=production parcel build --experimental-scope-hoisting demo/index.html --public-url='./'",
     "posttest": "eslint .",
-    "postpublishOnly": "npm run demo:build && gh-pages -d dist"
+    "postpublish": "npm run demo:build && gh-pages -d dist"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
