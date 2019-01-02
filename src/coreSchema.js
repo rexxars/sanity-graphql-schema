@@ -33,7 +33,7 @@ module.exports = graphql`
   scalar Text
   scalar Date
   scalar Datetime
-  scalar Urls
+  scalar Url
 
   type SanityNameTitlePair {
     name: String!
