@@ -6,8 +6,9 @@
   "scripts": {
     "test": "jest",
     "demo": "parcel demo/index.html",
-    "demo:build": "NODE_ENV=production parcel build --experimental-scope-hoisting demo/index.html",
-    "posttest": "eslint ."
+    "demo:build": "NODE_ENV=production parcel build --experimental-scope-hoisting demo/index.html --public-url='./'",
+    "posttest": "eslint .",
+    "postpublishOnly": "npm run demo:build && gh-pages -d dist"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -19,6 +20,7 @@
     "eslint": "^5.9.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-config-sanity": "^0.136.0",
+    "gh-pages": "^2.0.1",
     "jest": "^23.6.0",
     "json5": "^2.1.0",
     "parcel-bundler": "^1.11.0",
