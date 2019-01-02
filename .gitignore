@@ -51,4 +51,4 @@ package-lock.json
 
 # build ouput
 dist
-
+lib

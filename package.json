@@ -2,15 +2,18 @@
   "name": "sanity-graphql-schema",
   "version": "0.0.2",
   "description": "Declare a Sanity schema using GraphQL SDL syntax",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "jest",
+    "build": "babel -d lib src",
     "demo": "parcel demo/index.html",
     "demo:build": "NODE_ENV=production parcel build --experimental-scope-hoisting demo/index.html --public-url='./'",
     "posttest": "eslint .",
+    "prepublishOnly": "npm run build",
     "postpublish": "npm run demo:build && gh-pages -d dist"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
