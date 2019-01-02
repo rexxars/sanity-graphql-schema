@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {debounce} from 'lodash-es'
+import {debounce} from 'lodash'
 import json5 from 'json5'
 import {
   UnControlled as UncontrolledCodeMirror,

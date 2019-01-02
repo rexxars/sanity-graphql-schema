@@ -1,6 +1,6 @@
 const oneline = require('oneline')
 const {parse, specifiedScalarTypes, valueFromASTUntyped, buildASTSchema} = require('graphql')
-const {words, snakeCase, camelCase, upperFirst, isPlainObject} = require('lodash-es')
+const {words, snakeCase, camelCase, upperFirst, isPlainObject} = require('lodash')
 const coreSchema = require('./coreSchema')
 const schemaError = require('./schemaError')
 const stubExternalTypes = require('./stubExternalTypes')
