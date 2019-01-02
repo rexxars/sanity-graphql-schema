@@ -7,6 +7,7 @@ import {
   Controlled as ControlledCodeMirror
 } from 'react-codemirror2'
 import compileSchema from '../src/compileSchema'
+import GithubBadge from './GithubBadge'
 import 'codemirror-graphql/mode'
 import 'codemirror/mode/javascript/javascript'
 
@@ -84,6 +85,7 @@ class SanityGraphQLDemo extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <GithubBadge />
         <UncontrolledCodeMirror
           value={this.props.initialSdl}
           options={{

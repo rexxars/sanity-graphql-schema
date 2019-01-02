@@ -1,6 +1,6 @@
 # sanity-graphql-schema
 
-Declare a [Sanity](https://www.sanity.io/) schema using GraphQL SDL syntax.
+Declare a [Sanity](https://www.sanity.io/) schema using GraphQL SDL syntax. [Try the demo?](https://rexxars.github.io/sanity-graphql-schema/)
 
 - Auto-infers title from type/field names (`leadAsset` -> `Lead asset`)
 - Type names are automatically camelcased (`BlogPost` -> `blogPost`)
