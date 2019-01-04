@@ -14,7 +14,7 @@ module.exports = graphql`
     email: Email
     text: Text
     date: Date
-    dateTime: DateTime
+    dateTime: Datetime
     url: Url
 
     # Lists

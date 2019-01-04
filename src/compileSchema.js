@@ -329,15 +329,23 @@ function convertObjectType(def, map, options) {
   })
 }
 
-function optionsFromDirectives(type, directives, map) {
+function optionsFromDirectives(type, directives, map, options) {
+  const {parent} = options
   const typeName = type.name && type.name.value
   const typeDef = typeName && map.get(typeName)
-  const {display, enum: enumDir, extract, hotspot} = directives
+  const {display, enum: enumDir, extract, hotspot, slug} = directives
   if (typeName === 'String') {
     return {
       list: enumDir && enumDir.values,
       layout: enumDir && enumDir.layout,
       direction: enumDir && enumDir.direction
+    }
+  }
+
+  if (typeName === 'Slug') {
+    return {
+      source: (slug && slug.source) || getFirstStringField(parent.fields, map),
+      maxLength: (slug && slug.maxLength) || 200
     }
   }
 
@@ -362,6 +370,14 @@ function optionsFromDirectives(type, directives, map) {
   }
 
   return {}
+}
+
+function getFirstStringField(fields, map) {
+  const first = fields
+    .map(field => ({name: field.name.value, type: getUnwrappedType(field.type, map)}))
+    .find(field => field.type && field.type.name.value === 'String')
+
+  return first ? first.name : undefined
 }
 
 function convertArrayField(def, map, options, type, field) {
@@ -423,7 +439,7 @@ function convertField(def, map, options) {
     readOnly: Boolean(readOnly) || undefined,
     hidden: Boolean(hidden) || undefined,
     fieldset: fieldset && fieldset.set,
-    options: withoutUndefined(optionsFromDirectives(type, directives, map))
+    options: withoutUndefined(optionsFromDirectives(type, directives, map, options))
   }
 
   if (def.arguments && def.arguments.length > 0) {

@@ -28,6 +28,9 @@ module.exports = graphql`
     annotations: String
   ) on OBJECT
 
+  # Slug directives
+  directive @slug(source: String, maxLength: Int) on FIELD_DEFINITION
+
   scalar Number
   scalar Email
   scalar Text

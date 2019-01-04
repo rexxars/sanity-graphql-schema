@@ -70,7 +70,7 @@ Array [
       Object {
         "name": "dateTime",
         "title": "Date time",
-        "type": "dateTime",
+        "type": "datetime",
       },
       Object {
         "name": "url",
@@ -995,7 +995,6 @@ Array [
         ],
         "name": "description",
         "title": "Description",
-        "type": "string",
       },
     ],
     "name": "book",
@@ -1064,12 +1063,75 @@ Array [
         ],
         "name": "description",
         "title": "Description",
-        "type": "string",
       },
     ],
     "name": "book",
     "title": "Book",
     "type": "document",
+  },
+]
+`;
+
+exports[`18-manual-slug 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+      Object {
+        "name": "description",
+        "title": "Description",
+        "type": "string",
+      },
+      Object {
+        "name": "slug",
+        "options": Object {
+          "maxLength": 200,
+          "source": "description",
+        },
+        "title": "Slug",
+        "type": "slug",
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "object",
+  },
+]
+`;
+
+exports[`19-auto-slug 1`] = `
+Array [
+  Object {
+    "fields": Array [
+      Object {
+        "name": "num",
+        "title": "Num",
+        "type": "number",
+      },
+      Object {
+        "name": "name",
+        "title": "Name",
+        "type": "string",
+        "validation": [Function],
+      },
+      Object {
+        "name": "slug",
+        "options": Object {
+          "maxLength": 200,
+          "source": "name",
+        },
+        "title": "Slug",
+        "type": "slug",
+      },
+    ],
+    "name": "author",
+    "title": "Author",
+    "type": "object",
   },
 ]
 `;

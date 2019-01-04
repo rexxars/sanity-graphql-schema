@@ -92,6 +92,9 @@ export default createSchema({
 * `@extract(metadata: [String!]!, originalFilename: Boolean)`
   Set on fields of type `Image` or `File` to determine which metadata to extract, and whether or not to store the original filename
 
+* `@slug(source: String, maxLength: Int)`
+  Set on fields of type `Slug`, determines which field to generate slugs from, or set maximum length of the slug.
+
 * `@hotspot`
   Set on image fields to opt-in to the hotspot/crop functionality
 
