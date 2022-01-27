@@ -1,5 +1,13 @@
 # sanity-graphql-schema
 
+## DEPRECATED/UNMAINTAINED
+
+**⚠️ This module is no longer maintained!**
+
+The type system in Sanity is very expressive. GraphQL directives are neat, but modeling every schema variation through them can be a bit of a hassle. Still - this module/repo serves as an example of the fact that Sanity schemas are "just" javascript - and can be generated using _other_ javascript. Pretty sweet!
+
+## Description
+
 Declare a [Sanity](https://www.sanity.io/) schema using GraphQL SDL syntax. [Try the demo?](https://rexxars.github.io/sanity-graphql-schema/)
 
 - Auto-infers title from type/field names (`leadAsset` -> `Lead asset`)
